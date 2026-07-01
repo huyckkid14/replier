@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Replier is a coming-soon AI email assistant extension for Gmail that drafts, reviews, and sends replies with configurable safeguards.">
+    <title>Replier | AI Email Assistant</title>
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="Replier home">
+          <img src="assets/icon.svg" alt="">
+          <span>Replier</span>
+        </a>
+        <div class="nav-links">
+          <a class="hide-small" href="#features">Features</a>
+          <a class="hide-small" href="#safety">Safety</a>
+          <a href="privacy.html">Privacy</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <p class="kicker"><span class="status-dot"></span> Coming soon for Gmail</p>
+            <h1>Replier</h1>
+            <p class="lede">An AI email assistant extension that helps draft Gmail replies, review them for risky mistakes, and handle unread messages with the level of automation you choose.</p>
+            <div class="hero-actions">
+              <a class="button" href="mailto:bestorangelover@gmail.com?subject=Replier%20early%20access">Request early access</a>
+              <a class="button secondary" href="privacy.html">Read privacy policy</a>
+            </div>
+            <div class="trust-row" aria-label="Replier highlights">
+              <span>Draft-only mode</span>
+              <span>Trusted sender guardrail</span>
+              <span>Four-check reviewed sending</span>
+            </div>
+          </div>
+
+          <aside class="product-panel" aria-label="Replier popup preview">
+            <div class="product-top">
+              <div class="product-title">
+                <img src="assets/icon.svg" alt="">
+                <div>
+                  <strong>Replier</strong>
+                  <p>AI Email Assistant</p>
+                </div>
+              </div>
+              <span class="saved">Saved</span>
+            </div>
+            <div class="mode-list">
+              <div class="mode-card">
+                <span class="mode-icon">0</span>
+                <span>
+                  <strong>Do nothing</strong>
+                  <small>Keep polling off for replies.</small>
+                </span>
+              </div>
+              <div class="mode-card active">
+                <span class="mode-icon">D</span>
+                <span>
+                  <strong>Draft email & notify you</strong>
+                  <small>Create a draft and wait for approval.</small>
+                </span>
+              </div>
+              <div class="mode-card">
+                <span class="mode-icon">4</span>
+                <span>
+                  <strong>Draft, review, and send</strong>
+                  <small>One local safety checker plus three AI reviewers.</small>
+                </span>
+              </div>
+              <div class="mode-card warn">
+                <span class="mode-icon">!</span>
+                <span>
+                  <strong>Send without review</strong>
+                  <small>Available, but clearly marked for higher risk.</small>
+                </span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-head">
+          <p class="eyebrow">What it does</p>
+          <h2>Choose how Replier handles incoming Gmail.</h2>
+          <p>Replier is designed around explicit modes, visible settings, and draft-first workflows so email automation stays understandable.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span>T</span>
+            <h3>Send a saved template</h3>
+            <p>Use a quick acknowledgement, a busy reply, or your own custom template for trusted senders.</p>
+          </article>
+          <article class="feature">
+            <span>D</span>
+            <h3>Draft and notify</h3>
+            <p>Create Gmail drafts for unread inbox messages, then review them yourself before anything goes out.</p>
+          </article>
+          <article class="feature">
+            <span>AI</span>
+            <h3>Generate concise replies</h3>
+            <p>Draft replies with your selected tone and optional signature, routed through a Cloudflare Worker to OpenAI.</p>
+          </article>
+          <article class="feature">
+            <span>5</span>
+            <h3>Poll unread inbox email</h3>
+            <p>Check unread Gmail inbox messages on a five-minute extension alarm or manually with Poll now.</p>
+          </article>
+          <article class="feature">
+            <span>@</span>
+            <h3>Trust specific senders</h3>
+            <p>Limit auto-send behavior to senders you trust. Everyone else can be converted into a draft instead.</p>
+          </article>
+          <article class="feature">
+            <span>!</span>
+            <h3>Surface drafts needing attention</h3>
+            <p>Blocked, declined, pending, and error drafts appear in the popup with badge counts and draft links.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="safety" class="safety">
+        <div class="section safety-layout">
+          <div class="section-head">
+            <p class="eyebrow">Safety review</p>
+            <h2>Reviewed auto-send only sends when every check passes.</h2>
+            <p>The extension can create a draft instead of sending when it sees risk signals, review failures, untrusted senders, or processing errors.</p>
+          </div>
+          <ul class="checklist">
+            <li>
+              <strong>Local safety checker</strong>
+              <span>Blocks placeholders, unsupported personal claims, wrong signatures, no-reply requests, and promotional email signals.</span>
+            </li>
+            <li>
+              <strong>Three independent AI reviewers</strong>
+              <span>Each reviewer evaluates the original email and proposed draft. One block is enough to stop sending.</span>
+            </li>
+            <li>
+              <strong>Draft-only fallbacks</strong>
+              <span>When review fails, a sender is not trusted, an error occurs, or the original asks for no reply, Replier saves a draft instead.</span>
+            </li>
+            <li>
+              <strong>Automatic disclosure</strong>
+              <span>Generated outbound messages can include a disclosure that the email was automatically generated by Replier.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="policy-strip">
+        <div class="policy-inner">
+          <div>
+            <h2>Privacy policy is ready.</h2>
+            <p>Replier uses Gmail permissions for reply functionality and does not sell Gmail data or use Gmail data for advertising.</p>
+          </div>
+          <a class="button secondary" href="privacy.html">View policy</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>Replier is coming soon.</p>
+        <a href="mailto:bestorangelover@gmail.com">bestorangelover@gmail.com</a>
+      </div>
+    </footer>
+  </body>
+</html>
