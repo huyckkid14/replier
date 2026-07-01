@@ -30,7 +30,14 @@
             <p class="kicker"><span class="status-dot"></span> Coming soon for Gmail</p>
             <h1>Replier</h1>
             <p class="lede">An AI email assistant extension that helps draft Gmail replies, review them for risky mistakes, and handle unread messages with the level of automation you choose.</p>
-            <div class="hero-actions">
+            <form class="notify-form" action="https://formspree.io/f/mnjkgrob" method="POST">
+              <label for="notify-email">Get notified when released</label>
+              <div class="notify-row">
+                <input id="notify-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                <button type="submit">Get notified when released</button>
+              </div>
+            </form>
+            <div class="hero-actions secondary-actions">
               <a class="button secondary" href="privacy.html">Read privacy policy</a>
             </div>
             <div class="trust-row" aria-label="Replier highlights">
