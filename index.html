@@ -30,15 +30,19 @@
             <p class="kicker"><span class="status-dot"></span> Coming soon for Gmail</p>
             <h1>Replier</h1>
             <p class="lede">An AI email assistant extension that helps draft Gmail replies, review them for risky mistakes, and handle unread messages with the level of automation you choose.</p>
-            <form class="notify-form" action="https://formspree.io/f/mnjkgrob" method="POST">
-              <label for="notify-email">Get notified when released</label>
-              <div class="notify-row">
-                <input id="notify-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
-                <button type="submit">Get notified when released</button>
-              </div>
-            </form>
-            <div class="hero-actions secondary-actions">
+            <div class="hero-actions">
+              <button id="notifyToggle" class="button" type="button" aria-expanded="false" aria-controls="notifyPanel">Get notified when released</button>
               <a class="button secondary" href="privacy.html">Read privacy policy</a>
+            </div>
+            <div id="notifyPanel" class="notify-panel" hidden>
+              <form class="notify-form" action="https://formspree.io/f/mnjkgrob" method="POST">
+                <label for="notify-email">Release notification email</label>
+                <div class="notify-row">
+                  <input id="notify-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                  <button type="submit">Notify me</button>
+                </div>
+                <p>We will only use this email for Replier release updates.</p>
+              </form>
             </div>
             <div class="trust-row" aria-label="Replier highlights">
               <span>Draft-only mode</span>
@@ -177,5 +181,20 @@
         <a href="mailto:bestorangelover@gmail.com">bestorangelover@gmail.com</a>
       </div>
     </footer>
+    <script>
+      const notifyToggle = document.querySelector("#notifyToggle");
+      const notifyPanel = document.querySelector("#notifyPanel");
+      const notifyEmail = document.querySelector("#notify-email");
+
+      notifyToggle.addEventListener("click", () => {
+        const isOpen = notifyToggle.getAttribute("aria-expanded") === "true";
+        notifyToggle.setAttribute("aria-expanded", String(!isOpen));
+        notifyPanel.hidden = isOpen;
+
+        if (!isOpen) {
+          notifyEmail.focus();
+        }
+      });
+    </script>
   </body>
 </html>
