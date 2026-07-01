@@ -128,13 +128,17 @@ button:hover {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 480px);
   align-items: center;
   width: min(1120px, calc(100% - 36px));
   min-height: calc(100vh - 72px);
   margin: 0 auto;
   padding: 78px 0 92px;
   gap: 58px;
+}
+
+.hero-inner > div:first-child {
+  min-width: 0;
 }
 
 .kicker {
@@ -167,6 +171,13 @@ h1 {
   max-width: 720px;
   font-size: clamp(48px, 8vw, 88px);
   line-height: 0.98;
+}
+
+.hero h1 {
+  max-width: none;
+  font-size: 38px;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .lede {
@@ -543,7 +554,7 @@ h2 {
   padding-left: 22px;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1040px) {
   .hero-inner,
   .safety-layout,
   .feature-grid {
@@ -555,6 +566,10 @@ h2 {
     padding: 54px 0 64px;
   }
 
+  .hero h1 {
+    font-size: 42px;
+  }
+
   .product-panel {
     max-width: 560px;
   }
@@ -563,6 +578,12 @@ h2 {
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero h1 {
+    font-size: 42px;
   }
 }
 
@@ -584,6 +605,10 @@ h2 {
     font-size: 46px;
   }
 
+  .hero h1 {
+    font-size: 27px;
+  }
+
   .lede {
     font-size: 18px;
   }
@@ -600,5 +625,23 @@ h2 {
 
   .section {
     padding: 58px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 18px;
   }
 }
