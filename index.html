@@ -30,6 +30,10 @@
             <p class="kicker"><span class="status-dot"></span> Coming soon for Gmail</p>
             <h1>Replier | AI Email Assistant</h1>
             <p class="lede">An AI email assistant extension that helps draft Gmail replies, review them for risky mistakes, and handle unread messages with the level of automation you choose.</p>
+            <div id="installBadge" class="install-badge" hidden>
+              <span aria-hidden="true">✓</span>
+              Installed to Google Chrome
+            </div>
             <div class="hero-actions">
               <button id="notifyToggle" class="button" type="button" aria-expanded="false" aria-controls="notifyPanel">Get notified when released</button>
               <a class="button secondary" href="privacy.html">Read privacy policy</a>
@@ -182,9 +186,32 @@
       </div>
     </footer>
     <script>
+      const REPLIER_EXTENSION_ID = "kihemlemcopoacegpnhedpiekcpnaaim";
+      const installBadge = document.querySelector("#installBadge");
       const notifyToggle = document.querySelector("#notifyToggle");
       const notifyPanel = document.querySelector("#notifyPanel");
       const notifyEmail = document.querySelector("#notify-email");
+
+      function detectReplierInstall() {
+        const runtime = window.chrome?.runtime;
+        if (!runtime?.sendMessage) {
+          return;
+        }
+
+        try {
+          runtime.sendMessage(REPLIER_EXTENSION_ID, { type: "REPLIER_INSTALL_CHECK" }, (response) => {
+            if (runtime.lastError) {
+              return;
+            }
+
+            if (response?.ok && response.installed) {
+              installBadge.hidden = false;
+            }
+          });
+        } catch {
+          installBadge.hidden = true;
+        }
+      }
 
       notifyToggle.addEventListener("click", () => {
         const isOpen = notifyToggle.getAttribute("aria-expanded") === "true";
@@ -195,6 +222,8 @@
           notifyEmail.focus();
         }
       });
+
+      detectReplierInstall();
     </script>
   </body>
 </html>
