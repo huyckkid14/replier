@@ -56,9 +56,14 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 11px;
+  min-width: 0;
   color: var(--text);
   font-weight: 800;
   text-decoration: none;
+}
+
+.brand span {
+  white-space: nowrap;
 }
 
 .brand img {
@@ -191,22 +196,41 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 34px;
+  margin-top: 20px;
 }
 
 .install-badge {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  margin-top: 28px;
-  padding: 9px 12px;
-  border: 1px solid rgba(18, 128, 92, 0.22);
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 14px 10px 11px;
+  border: 1px solid rgba(177, 112, 0, 0.32);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.76);
-  color: var(--green);
+  background:
+    linear-gradient(135deg, rgba(255, 250, 229, 0.96), rgba(255, 226, 137, 0.92) 48%, rgba(255, 247, 218, 0.98)),
+    #fff2c2;
+  color: #674500;
   font-size: 14px;
-  font-weight: 850;
-  box-shadow: 0 12px 32px rgba(31, 51, 84, 0.1);
+  font-weight: 900;
+  letter-spacing: 0;
+  overflow: hidden;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 16px 36px rgba(126, 86, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(177, 112, 0, 0.14);
+}
+
+.install-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.58) 42%, transparent 64%);
+  transform: translateX(-120%);
+  animation: badge-shine 3.6s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .install-badge[hidden] {
@@ -216,13 +240,30 @@ h1 {
 .install-badge span {
   display: grid;
   place-items: center;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: var(--green);
+  background:
+    radial-gradient(circle at 35% 30%, #fff7c2 0 18%, #ffc83d 38%, #c98600 100%);
   color: #ffffff;
   font-size: 14px;
   line-height: 1;
+  text-shadow: 0 1px 1px rgba(91, 54, 0, 0.38);
+  box-shadow:
+    0 6px 14px rgba(126, 86, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+@keyframes badge-shine {
+  0%,
+  46% {
+    transform: translateX(-120%);
+  }
+
+  72%,
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 .notify-panel {
@@ -621,6 +662,19 @@ h2 {
 @media (max-width: 620px) {
   .nav {
     min-height: 64px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand span {
+    font-size: 13px;
   }
 
   .nav-links {
